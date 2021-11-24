@@ -11,3 +11,4 @@ def testar_blazedemo():
     time.sleep(30) # pausa de 30 segundos - precisa remover depois - "Alfinete"
     driver.get_screenshot_as_file('../prints/home.png')
     time.sleep(3)  # pausa de 3 segundos - precisa remover depois - "Alfinete"
+    # oi
