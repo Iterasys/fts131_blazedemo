@@ -1,3 +1,4 @@
+@compra_passagem
 Feature: Compra de Passagem Aerea
   Scenario: Viagem de Sao Paulo a New York
     Given que acesso o site Blazedemo

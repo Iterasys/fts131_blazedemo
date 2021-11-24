@@ -1,5 +1,11 @@
 from behave import *
 
+# Before no Java / SetUp no C#
+def before_feature(context, feature):
+    if 'compra_passagem' in feature.tag:
+        context.execute_steps(
+
+        )
 
 
 #TODO: "Desambiguar o passo com o PO"
@@ -7,7 +13,6 @@ from behave import *
 @given('que acesso o portal Blazedemo')
 def que_acesso_o_site_Blazedemo(context):
     print('Passo 1 - Abriu o site')
-
 
 
 @when('pesquiso passagens de {origem} a {destino}')
