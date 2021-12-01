@@ -7,12 +7,11 @@ def before_feature(context, feature):
 
         )
 
-
 #TODO: "Desambiguar o passo com o PO"
 @given('que acesso o site Blazedemo')
 @given('que acesso o portal Blazedemo')
 def que_acesso_o_site_Blazedemo(context):
-    context.web.get('https://www.iterasys.com.br')
+    context.driver.get('https://www.blazedemo.com')
     print('Passo 1 - Abriu o site')
 
 
