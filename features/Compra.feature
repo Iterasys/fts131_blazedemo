@@ -10,7 +10,7 @@ Feature: Compra de Passagem Aerea
 
   Scenario: Viagem de Boston a Dublin
     Given que acesso o portal Blazedemo
-    # Parametros fixos
+    # Parametros fixos .
     When pesquiso passagens de "Boston" a "Dublin"
     And seleciono o primeiro voo
     And preencho os dados de pagamento
