@@ -4,6 +4,8 @@ from selenium import webdriver
 def before_all(context):
     # Declaramos o objeto do Selenium e o instanciamos como controlador do Chrome
     context.driver = webdriver.Chrome('drivers/chrome/96/chromedriver.exe')
+    # Configurar o Selenium para esperar até 30 segundos pelos elementos alvo
+    context.driver.implicitly_wait(30)
 
 # Bloco executado no final de tudo - Último a rodar
 def after_all(context):

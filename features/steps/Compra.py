@@ -1,3 +1,5 @@
+import time
+
 from behave import *
 from selenium import *
 from selenium.webdriver.support.select import Select
@@ -9,6 +11,7 @@ from features import environment
 from selenium.webdriver.common.by import By
 
 # Atributos / Variaveis para armazenar os localizadores
+delay = 0
 origem = 'fromPort'
 
 def before_feature(context, feature):
@@ -22,6 +25,10 @@ def before_feature(context, feature):
 @given('que acesso o portal Blazedemo')
 def que_acesso_o_site_Blazedemo(context):
     context.driver.get('https://www.blazedemo.com')
+    # para demonstrar ao usuário o funcionamento
+    # introduzimos um conjunto de esperas
+    # que são anuladas nas execuções normais
+    time.sleep(delay)
     print('Passo 1 - Abriu o site')
 
 @when('pesquiso passagens de "{origem}" a "{destino}"')
@@ -39,16 +46,19 @@ def pesquiso_passagens_de_origem_a_destino(context, origem, destino):
     # Campo Origem
     # Cria um elemento a partir da localização do mesmo na página
     elemento_origem = context.driver.find_element(By.NAME, 'fromPort')
+
     # Cria um objeto que seleciona o elemento (combo)
     objeto_origem = Select(elemento_origem)
+
     # Usando o objeto você seleciona o elemento na lista (combo)
     objeto_origem.select_by_visible_text(origem)
+    time.sleep(delay)
 
     # Campo Destino
     elemento_destino = context.driver.find_element(By.NAME, 'toPort')
     objeto_destino = Select(elemento_destino)
     objeto_destino.select_by_visible_text(destino)
-
+    time.sleep(delay)
     # Clicar no Botão de Pesquisar Vôos
     context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-primary').click()
 
@@ -58,6 +68,7 @@ def pesquiso_passagens_de_origem_a_destino(context, origem, destino):
 @when('seleciono o primeiro voo')
 def seleciono_o_primeiro_voo(context):
     # Clicar no botão de seleção do 1o vôo
+    time.sleep(delay)
     context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-small').click()
     print('Passo 3 - Selecionou o primeiro voo')
 
@@ -65,9 +76,12 @@ def seleciono_o_primeiro_voo(context):
 @when('preencho os dados de pagamento')
 def preencho_os_dados_de_pagamento(context):
     # Escrever na caixa de texto do Nome
+    time.sleep(delay)
     context.driver.find_element(By.ID, 'inputName').send_keys('José Correia')
+    time.sleep(delay)
     # Clicar no botão de comprar passagem
     context.driver.find_element(By.CSS_SELECTOR, 'input.btn.btn-primary').click()
+    time.sleep(delay)
     print('Passo 4 - Preencheu os dados de pagamento')
 
 
