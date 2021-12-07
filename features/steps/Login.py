@@ -17,10 +17,10 @@ def step_impl(context):
     assert context.driver.find_element(By.CSS_SELECTOR, 'div.panel-heading').text == 'Login'
     time.sleep(2)
 
-@when(u'preencho "email" e "senha"')
-def step_impl(context):
-    context.driver.find_element(By.ID, 'email').send_keys('correia@iterasys.com.br')
-    context.driver.find_element(By.ID, 'password').send_keys('123456')
+@when(u'preencho "{email}" e "{senha}"')
+def step_impl(context, email, senha):
+    context.driver.find_element(By.ID, 'email').send_keys(email)
+    context.driver.find_element(By.ID, 'password').send_keys(senha)
     time.sleep(2)
 
 @when(u'clico em Login')
